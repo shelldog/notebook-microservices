@@ -1,0 +1,72 @@
+/* Copyright(c) 2022-2023 Hajime - Kha Tran.
+ *
+ * Style template for index.js.
+ * */
+
+:root {
+  --ff-roboto: 'Roboto', sans-serif;
+  --ff-open-sans: 'Open Sans', sans-serif;
+  --ff-std: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+  --clr-bg-white: #ffffff;
+  --clr-bg-std: #0d1117;
+
+  --clr-txt-std: #c9d1d9;
+  --clr-txt-black: #000000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+dd,
+dl {
+  margin: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+img,
+picture {
+  display: block;
+  width: 100%;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+body {
+  align-items: center;
+  background-color: var(--clr-bg-white);
+  color: var(--clr-txt-black);
+  font-family: var(--ff-std);
+}

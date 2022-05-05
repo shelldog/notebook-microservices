@@ -1,0 +1,8 @@
+# dependencies & artifacts
+/node_modules
+
+# miscs
+/env/*
+
+# environments & securities
+/package*.json

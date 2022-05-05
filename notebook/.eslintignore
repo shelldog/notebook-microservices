@@ -1,0 +1,13 @@
+# dependencies.
+./node_modules
+
+# production.
+./build
+./dist
+
+# misc.
+./package*
+
+# utils.
+.*
+__*

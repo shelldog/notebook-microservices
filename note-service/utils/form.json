@@ -1,0 +1,9 @@
+{
+  "note": {
+    "description": "Represents a note form in the system",
+    "fields": [
+      { "name": "content", "type": "string" },
+      { "name": "status", "type": "string" }
+    ]
+  }
+}

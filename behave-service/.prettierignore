@@ -1,0 +1,8 @@
+# dependencies & artifacts
+/node_modules
+
+# environment & authorization
+/env/*
+
+# mandatories
+/package*.json

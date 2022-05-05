@@ -1,0 +1,9 @@
+{
+  "behave": {
+    "description": "Represents a check form in the system",
+    "fields": [
+      { "name": "noteid", "type": "string" },
+      { "name": "status", "type": "string" }
+    ]
+  }
+}

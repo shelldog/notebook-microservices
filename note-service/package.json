@@ -1,0 +1,37 @@
+{
+  "name": "note-services",
+  "version": "1.0.0",
+  "description": "API entry point for Note Service, mainly using for taking notes.",
+  "main": "app/server.js",
+  "scripts": {
+    "dev": "nodemon app/server.js",
+    "pretty": "prettier --check .",
+    "prettify": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shelldog/note-service.git"
+  },
+  "keywords": [
+    "express",
+    "node"
+  ],
+  "author": "Musashi (Kha Tran)",
+  "license": "MIT",
+  "bugs": {
+    "url": "git+https://github.com/shelldog/note-service/issues"
+  },
+  "homepage": "https://github.com/shelldog/note-service#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.1",
+    "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
+}

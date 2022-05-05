@@ -1,0 +1,37 @@
+{
+  "name": "check-service",
+  "version": "1.0.0",
+  "description": "API entry point for Behave Service, using for checking the behave of the note",
+  "main": "app/server.js",
+  "scripts": {
+    "dev": "nodemon app/server.js",
+    "pretty": "prettier --check .",
+    "prettify": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shelldog/behave-service.git"
+  },
+  "keywords": [
+    "express",
+    "node"
+  ],
+  "author": "Musashi (Kha Tran)",
+  "license": "MIT",
+  "bugs": {
+    "url": "git+https://github.com/shelldog/behave-service/issues"
+  },
+  "homepage": "https://github.com/shelldog/behave-service#readme",
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.2",
+    "nodemon": "^2.0.16"
+  }
+}
