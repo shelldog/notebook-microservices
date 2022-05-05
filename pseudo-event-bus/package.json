@@ -1,0 +1,29 @@
+{
+  "name": "pseudo-event-bus",
+  "version": "1.0.0",
+  "description": "A pseudo event bus for demonstration how microservices work!",
+  "main": "app/server.js",
+  "scripts": {
+    "dev": "nodemon app/server.js",
+    "pretty": "prettier --check .",
+    "prettify": "prettier --write ."
+  },
+  "keywords": [
+    "express",
+    "node"
+  ],
+  "author": "Kha Tran (Musashi)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.2",
+    "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
+}
