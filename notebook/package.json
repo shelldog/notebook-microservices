@@ -11,8 +11,7 @@
     "linting": "eslint --fix src/**/*.{js,jsx}",
     "pretty": "prettier --check src/**/*.{js,jsx}",
     "prettify": "prettier --write src/**/*.{js,jsx}",
-    "test:unit": "jest --passWithNoTests --testPathPattern=src/__tests__",
-    "prepare": "husky install"
+    "test:unit": "jest --passWithNoTests --testPathPattern=src/__tests__"
   },
   "author": "Hajime - Kha Tran.",
   "license": "MIT",
