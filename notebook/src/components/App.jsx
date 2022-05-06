@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Header from './Header';
-import Body from './Body';
-import Item from './Item';
-import Button from './Button';
+import Note from './Note';
+import './app.css';
 import axios from 'axios';
 
 export default function App() {
@@ -10,65 +9,55 @@ export default function App() {
 
   const input = useRef(null);
 
-  const onSubmit = async () => {
-    const res = await axios.post(process.env.NOTE_SERVICE_ENTRY_POINT, {
-      content: input.current.value,
-      status: 'pending'
-    });
+  const onSubmit = async (e) => {
+    e.preventDefault();
 
-    if (!res) {
-      return;
+    const content = input.current.value;
+
+    if (content.length < 50) {
+      const { data } = await axios.post(`http://${process.env.NOTE_SERVICE_ROUTE}:${process.env.NOTE_SERVICE_PORT}/api/note`, {
+        content: input.current.value,
+        status: 'pending'
+      });    
+
+      fetchNotes();
     }
+  }
 
-    const { data } = await axios.get(process.env.QUERY_SERVICE_ENTRY_POINT);
+  const fetchNotes = async () => {
+    const { data } = await axios.get(`http://${process.env.QUERY_SERVICE_ROUTE}:${process.env.QUERY_SERVICE_PORT}/api/queries`);
 
-    setNotes(data['data']);
+    setNotes(data.data);
   }
 
   useEffect(() => {
-    const fetchNotes = async () => {
-      const res = await axios.get(process.env.QUERY_SERVICE_ENTRY_POINT);
-
-      setNotes(res['data']['data'])
-    }
-
-    fetchNotes() 
+    fetchNotes();
   }, []);
-
 
   return (
     <div className='app'>
-      <Header>Notebook</Header>
-      <Body>
-        <div className='flex jc-c ai-c'>
-          <div className='form'>
-            <div className='form-i flex jc-sb ai-c'>
-              <input className='form-input' ref={input} placeholder={"We're all a goldfish, just taking note!"}/>
-              <a className='form-a' onClick={onSubmit}>Submit</a>
+      <Header>
+        Notebook
+      </Header>
+      <div className='body'>
+        <div className='container flex ai-c jc-c'>
+          <div className='container-p-a content'>
+            <div className='form flex ai-c jc-c'>
+                <div className='flex sm-l jc-sb ai-c'>
+                  <input placeholder={"Just taking note, dude! We're all goldfish!"} className='form-input' ref={input} />
+                  <a className='form-button' onClick={onSubmit}>submit</a> 
+                </div>
+            </div>
+            <div className='note'>
+              {notes.map((note) => (
+                <Note key={note._id} note={note}>
+                  {note.content} 
+                </Note>
+              ))}
             </div>
           </div>
         </div>
-        <div className='content flex ai-c jc-c'>
-          <div>
-            {notes.map((note) => (
-              <Item key={note._id}>
-                <div className='item-w'>
-                  <div className='flex jc-sb'>
-                    <p className='item-t'>{note.noteid}</p> 
-                    <p className='item-t'>Created at: {note.createdAt}</p>
-                  </div>
-                  <div className='item-c flex jc-sb ai-c'>
-                      <p className='item-p'>
-                        {note.content}
-                      </p>
-                      <Button behave={note.behave} noteid={note.noteid} />
-                  </div>
-                </div>
-              </Item>
-            ))}
-          </div>
-        </div>
-      </Body>
+      </div>
     </div>
   )
 }

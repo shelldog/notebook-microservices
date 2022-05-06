@@ -1,0 +1,35 @@
+.note-c {
+  border: 1px solid #000000;
+  padding: 1rem 2rem;
+  margin-top: 1rem;
+}
+
+.note-p {
+  font-size: 0.6rem;
+}
+
+.note-b {
+  margin-top: 1rem;
+}
+
+.note-button {
+  border: 0px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.7rem;
+}
+
+.status-off {
+  background-color: #efefef;
+  color: #666666;
+}
+
+.status-on {
+  background-color: #5ce468;
+  color: #ffffff;
+}
+
+.status-finished {
+  background-color: #efefef;
+  color: #ffffff;
+}

@@ -5,7 +5,9 @@ docker-rm-image:
 	docker rmi note-service-image \
 		&& docker rmi behave-service-image \
 		&& docker rmi event-bus-image \
-		&& docker rmi query-service-image
+		&& docker rmi query-service-image \
+		&& docker rmi notebook-image:latest \
+		&& docker rmi notebook-image:prod
 
 docker-build-image:
 	cd note-service \
@@ -16,6 +18,12 @@ docker-build-image:
 		&& $(MAKE) build-image
 	cd query-service \
 		&& $(MAKE) build-image
+	cd notebook \
+		&& $(MAKE) build-image
+
+docker-build-prod-image:
+	cd notebook \
+		&& $(MAKE) build-prod-image
 
 
 # for local
@@ -35,7 +43,8 @@ docker-compose-dev-down:
 # for production
 
 docker-compose-production-up:
-	ENV=production docker-compose -f docker-compose-production.yml up
+	$(MAKE) docker-build-prod-image \
+			&& ENV=production docker-compose -f docker-compose-production.yml up
 
 docker-compose-production-down:
 	ENV=production docker-compose -f docker-compose-production.yml down
@@ -43,5 +52,3 @@ docker-compose-production-down:
 # other utilities
 docker-prune:
 	docker volume prune
-
-

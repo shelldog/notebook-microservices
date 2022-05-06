@@ -1,5 +1,10 @@
 version: "3"
 services:
+  notebook:
+    image: notebook-image:prod
+    restart: always
+    ports:
+    - 80:80
   event-bus-service:
     image: event-bus-image
     restart: always
