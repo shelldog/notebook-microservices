@@ -32,8 +32,6 @@ module.exports = ({ ENVIRONMENT }) => {
     return prev
   }, {})
 
-  console.log(envObj)
-
   // webpack init.
   return require('./webpack.core.js')({
     // tell the webpack this is for development.
