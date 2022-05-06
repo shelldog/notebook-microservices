@@ -1,0 +1,26 @@
+.item {
+  margin: 0.8rem;
+}
+
+.item-w {
+  border: 1px solid #000000;
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  width: 40rem;
+}
+
+.item-p {
+  font-size: 1.02rem;
+  padding: 0rem 0.6rem;
+  max-width: 70%;
+}
+
+.item-t {
+  font-size: 0.7rem;
+  border-bottom: 1px solid #000000;
+}
+
+.item-c {
+  margin-top: 0.8rem; 
+}
+

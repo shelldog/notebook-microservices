@@ -1,0 +1,28 @@
+.button {
+  border-radius: 4px;
+  border: 0px;
+  color: #ffffff;
+  padding: 0.2rem 1rem;
+  cursor: pointer;
+  transition: background-color 400ms ease-in-out;
+}
+
+.status-off {
+  background-color: #444444;
+}
+
+.status-off:hover {
+  background-color: #000000;
+}
+
+.status-on {
+  background-color: #68c558;
+}
+
+.status-on:hover {
+  background-color: #49863f;
+}
+
+.status-closed {
+  background-color: #efefef;
+}
