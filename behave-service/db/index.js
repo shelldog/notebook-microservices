@@ -12,8 +12,10 @@ const CONFIGS = Object.assign(
   }
 )
 
+const DB_PATH = process.env.ENV !== 'production' ? `mongodb://${process.env.DB_PATH}/behave-mongo` : `${process.env.DB_PATH}`;
+
 mongoose
-  .connect(process.env.DB_PATH, CONFIGS)
+  .connect(DB_PATH, CONFIGS)
   .then(() => {
     console.log('[MongoDB]: is running successfully!')
   })

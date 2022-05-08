@@ -12,8 +12,10 @@ const CONFIG = Object.assign(
   },
 )
 
+const DB_PATH = process.env.ENV !== 'production' ? `mongodb://${process.env.DB_PATH}/query-mongo` : `${process.env.DB_PATH}`;
+
 mongoose
-  .connect(process.env.DB_PATH, CONFIG)
+  .connect(DB_PATH, CONFIG)
   .then(() => {
     console.log('[MongoDB - QueryService]: running successfully!')
   })
