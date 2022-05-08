@@ -28,26 +28,26 @@ docker-build-prod-image:
 
 # for local
 docker-compose-local-up:
-	ENV=local MONGO_INITDB_ROOT_USERNAME=admin MONGO_INITDB_ROOT_PASSWORD=YWRtaW4tcGFzc3dvcmQK docker-compose -f docker-compose-local.yml up
+	ENV=local MONGO_INITDB_ROOT_USERNAME=admin MONGO_INITDB_ROOT_PASSWORD=YWRtaW4tcGFzc3dvcmQK docker-compose -f docker-compose-local.yaml up
 
 docker-compose-local-down:
-	ENV=local MONGO_INITDB_ROOT_USERNAME=admin MONGO_INITDB_ROOT_PASSWORD=YWRtaW4tcGFzc3dvcmQK docker-compose -f docker-compose-local.yml down
+	ENV=local MONGO_INITDB_ROOT_USERNAME=admin MONGO_INITDB_ROOT_PASSWORD=YWRtaW4tcGFzc3dvcmQK docker-compose -f docker-compose-local.yaml down
 
 # for dev
 docker-compose-dev-up:
-	ENV=local MONGO_INITDB_ROOT_USERNAME=admin MONGO_INITDB_ROOT_PASSWORD=YWRtaW4tcGFzc3dvcmQK docker-compose -f docker-compose-dev.yml up
+	ENV=local MONGO_INITDB_ROOT_USERNAME=admin MONGO_INITDB_ROOT_PASSWORD=YWRtaW4tcGFzc3dvcmQK docker-compose -f docker-compose-dev.yaml up
 
 docker-compose-dev-down:
-	ENV=local MONGO_INITDB_ROOT_USERNAME=admin MONGO_INITDB_ROOT_PASSWORD=YWRtaW4tcGFzc3dvcmQK docker-compose -f docker-compose-dev.yml down
+	ENV=local MONGO_INITDB_ROOT_USERNAME=admin MONGO_INITDB_ROOT_PASSWORD=YWRtaW4tcGFzc3dvcmQK docker-compose -f docker-compose-dev.yaml down
 
 # for production
 
 docker-compose-production-up:
 	$(MAKE) docker-build-prod-image \
-			&& ENV=production docker-compose -f docker-compose-production.yml up
+			&& ENV=production docker-compose -f docker-compose-production.yaml up
 
 docker-compose-production-down:
-	ENV=production docker-compose -f docker-compose-production.yml down
+	ENV=production docker-compose -f docker-compose-production.yaml down
 
 # other utilities
 docker-prune:
