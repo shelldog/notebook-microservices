@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k8s-config
+data:
+  mongo-url: mongo-service
+  note-url: note-service
+  behave-url: behave-service
+  query-url: query-service
+  event-bus-url: event-bus-service

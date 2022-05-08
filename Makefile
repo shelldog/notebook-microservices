@@ -52,3 +52,43 @@ docker-compose-production-down:
 # other utilities
 docker-prune:
 	docker volume prune
+
+## KUBERNETES ##
+
+k8s-load-image:
+	minikube image load mongo:latest
+	minikube image load note-service-image:latest
+	minikube image load behave-service-image:latest
+	minikube image load query-service-image:latest
+	minikube image load event-bus-image:latest
+
+k8s-up:
+	kubectl apply -f k8s-config.yaml
+	kubectl apply -f k8s-secret.yaml
+
+k8s-down:
+	kubectl delete -f k8s-config.yaml
+	kubectl delete -f k8s-secret.yaml
+
+# for local
+k8s-local-up:
+	kubectl apply -f k8s-mongo.yaml	
+	cd note-service \
+		&& $(MAKE) k8s-note-local-up
+	cd behave-service \
+		&& $(MAKE) k8s-behave-local-up
+	cd query-service \
+		&& $(MAKE) k8s-query-local-up
+	cd pseudo-event-bus \
+		&& $(MAKE) k8s-event-bus-local-up
+
+k8s-local-down:
+	kubectl delete -f k8s-mongo.yaml
+	cd note-service \
+		&& $(MAKE) k8s-note-local-down
+	cd behave-service \
+		&& $(MAKE) k8s-behave-local-down
+	cd query-service \
+		&& $(MAKE) k8s-query-local-down
+	cd pseudo-event-bus \
+		&& $(MAKE) k8s-event-bus-local-down
