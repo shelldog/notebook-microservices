@@ -22,7 +22,7 @@ spec:
             - containerPort: 30010
           env:
             - name: ENV
-              value: "local"
+              value: "production"
             - name: ENTRY_POINT
               value: "k8s"
             - name: PORT
