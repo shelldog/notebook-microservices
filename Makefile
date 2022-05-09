@@ -55,6 +55,9 @@ docker-prune:
 
 ## KUBERNETES ##
 
+k8s-init:
+	minikube start --ports=30000 --ports=30010 --ports=30020 --ports=30030
+
 k8s-load-image:
 	minikube image load mongo:latest
 	minikube image load note-service-image:latest

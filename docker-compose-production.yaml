@@ -10,22 +10,22 @@ services:
     restart: always
     env_file: ./pseudo-event-bus/env/${ENV}.env
     ports:
-      - 6000:6000
+      - 30000:30000
   note-service:
     image: note-service-image
     restart: always
     env_file: ./note-service/env/${ENV}.env
     ports:
-      - 6010:6010
+      - 30010:30010
   behave-service:
     image: behave-service-image
     restart: always
     env_file: ./behave-service/env/${ENV}.env
     ports:
-      - 6020:6020
+      - 30020:30020
   query-service:
     image: query-service-image
     restart: always
     env_file: ./query-service/env/${ENV}.env
     ports:
-      - 6030:6030
+      - 30030:30030

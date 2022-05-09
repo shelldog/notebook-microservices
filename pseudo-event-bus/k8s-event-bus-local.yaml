@@ -19,14 +19,14 @@ spec:
           image: event-bus-image:latest
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 6000 
+            - containerPort: 30000
           env:
             - name: ENV 
               value: "local"
             - name: ENTRY_POINT
               value: "k8s"
             - name: PORT
-              value: "6000"
+              value: "30000"
             - name: DB_PATH
               valueFrom:
                 configMapKeyRef:
@@ -48,21 +48,21 @@ spec:
                   name: k8s-config
                   key: note-url
             - name: NOTE_EVENT_PORT
-              value: "6010"
+              value: "30010"
             - name: BEHAVE_EVENT_ROUTE
               valueFrom:
                 configMapKeyRef:
                   name: k8s-config
                   key: behave-url
             - name: BEHAVE_EVENT_PORT
-              value: "6020"
+              value: "30020"
             - name: QUERY_EVENT_ROUTE
               valueFrom:
                 configMapKeyRef:
                   name: k8s-config
                   key: query-url
             - name: QUERY_EVENT_PORT
-              value: "6030"
+              value: "30030"
 ---
 apiVersion: v1
 kind: Service
@@ -74,6 +74,6 @@ spec:
     app: event-bus 
   ports:
     - protocol: TCP 
-      port: 6000
-      targetPort: 6000
+      port: 30000
+      targetPort: 30000
       nodePort: 30000
