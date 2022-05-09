@@ -62,6 +62,7 @@ docker-prune:
 
 k8s-init:
 	minikube start
+	minikube addons enable ingress
 
 k8s-init-wsl2:
 	minikube start --ports=127.0.0.1:30000:30000 --ports=127.0.0.1:30010:30010 --ports=127.0.0.1:30020:30020 --ports=127.0.0.1:30030:30030
@@ -77,6 +78,7 @@ k8s-load-image:
 k8s-up:
 	kubectl apply -f k8s-config.yaml
 	kubectl apply -f k8s-secret.yaml
+	kubectl apply -f k8s-ingress.yaml
 
 k8s-down:
 	kubectl delete -f k8s-config.yaml
@@ -84,6 +86,8 @@ k8s-down:
 
 # for local
 k8s-local-up:
+	cd notebook \
+		&& $(MAKE) docker-run-local
 	kubectl apply -f k8s-mongo.yaml	
 	cd note-service \
 		&& $(MAKE) k8s-note-local-up
@@ -95,6 +99,8 @@ k8s-local-up:
 		&& $(MAKE) k8s-event-bus-local-up
 
 k8s-local-down:
+	cd notebook \
+		&& $(MAKE) docker-stop-local
 	kubectl delete -f k8s-mongo.yaml
 	cd note-service \
 		&& $(MAKE) k8s-note-local-down

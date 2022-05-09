@@ -15,7 +15,7 @@ export default function Note({ children, note }) {
     e.preventDefault();
 
     if (status.content !== 'finished') {
-      const { data } = await axios.post(`http://${process.env.BEHAVE_SERVICE_ROUTE}:${process.env.BEHAVE_SERVICE_PORT}/api/behave/${note.noteid}/update`, {
+      const { data } = await axios.post(`http://${process.env.NOTEBOOK_ROUTE}/${process.env.BEHAVE_SERVICE_ROUTE}/api/behave/${note.noteid}/update`, {
         behave: status.next
       });
 
