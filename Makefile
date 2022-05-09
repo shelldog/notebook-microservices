@@ -110,3 +110,28 @@ k8s-local-down:
 		&& $(MAKE) k8s-query-local-down
 	cd pseudo-event-bus \
 		&& $(MAKE) k8s-event-bus-local-down
+
+k8s-prod-up:
+	cd notebook \
+		&& $(MAKE) build-prod-image \
+		&& $(MAKE) docker-run-prod
+	cd note-service \
+		&& $(MAKE) k8s-note-prod-up
+	cd behave-service \
+		&& $(MAKE) k8s-behave-prod-up
+	cd query-service \
+		&& $(MAKE) k8s-query-prod-up
+	cd pseudo-event-bus \
+		&& $(MAKE) k8s-event-bus-prod-up
+
+k8s-prod-down:
+	cd notebook \
+		&& $(MAKE) docker-stop-prod
+	cd note-service \
+		&& $(MAKE) k8s-note-prod-down
+	cd behave-service \
+		&& $(MAKE) k8s-behave-prod-down
+	cd query-service \
+		&& $(MAKE) k8s-query-prod-down
+	cd pseudo-event-bus \
+		&& $(MAKE) k8s-event-bus-prod-down

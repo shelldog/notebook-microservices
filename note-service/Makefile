@@ -13,3 +13,8 @@ k8s-note-local-down:
 	kubectl delete -f k8s-note-local.yaml
 
 # production
+k8s-note-prod-up:
+	kubectl apply -f k8s-note-prod.yaml
+
+k8s-note-prod-down:
+	kubectl delete -f k8s-note-prod.yaml
