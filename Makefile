@@ -84,6 +84,8 @@ k8s-down:
 
 # for local
 k8s-local-up:
+	cd notebook \
+		&& $(MAKE) docker-run-local
 	kubectl apply -f k8s-mongo.yaml	
 	cd note-service \
 		&& $(MAKE) k8s-note-local-up
@@ -95,6 +97,8 @@ k8s-local-up:
 		&& $(MAKE) k8s-event-bus-local-up
 
 k8s-local-down:
+	cd notebook \
+		&& $(MAKE) docker-stop-local
 	kubectl delete -f k8s-mongo.yaml
 	cd note-service \
 		&& $(MAKE) k8s-note-local-down
