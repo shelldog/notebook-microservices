@@ -5,7 +5,7 @@ docker-pull-images:
 	docker pull nginx:latest
 	docker pull node:17-alpine3.14
 
-docker-rm-image:
+docker-rm-images:
 	# make sure delete entire images
 	docker rmi note-service-image \
 		&& docker rmi behave-service-image \
@@ -14,7 +14,7 @@ docker-rm-image:
 		&& docker rmi notebook-image:latest \
 		&& docker rmi notebook-image:prod
 
-docker-build-image:
+docker-build-images:
 	cd note-service \
 		&& $(MAKE) build-image
 	cd behave-service \
@@ -66,7 +66,7 @@ k8s-init:
 k8s-init-wsl2:
 	minikube start --ports=127.0.0.1:30000:30000 --ports=127.0.0.1:30010:30010 --ports=127.0.0.1:30020:30020 --ports=127.0.0.1:30030:30030
 
-k8s-load-image:
+k8s-load-images:
 	minikube image load mongo:latest
 	minikube image load nginx:latest
 	minikube image load note-service-image:latest
