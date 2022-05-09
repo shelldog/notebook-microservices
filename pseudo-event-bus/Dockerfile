@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 # expose the port to the container
-EXPOSE 6000 
+EXPOSE 30000
 
 # launch the server
 CMD ["npm", "run", "dev"]
