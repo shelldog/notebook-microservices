@@ -1,5 +1,10 @@
 # Makefile for developing locally
 
+docker-pull-images:
+	docker pull mongo:latest
+	docker pull nginx:latest
+	docker pull node:17-alpine3.14
+
 docker-rm-image:
 	# make sure delete entire images
 	docker rmi note-service-image \
@@ -56,10 +61,14 @@ docker-prune:
 ## KUBERNETES ##
 
 k8s-init:
-	minikube start --ports=30000 --ports=30010 --ports=30020 --ports=30030
+	minikube start
+
+k8s-init-wsl2:
+	minikube start --ports=127.0.0.1:30000:30000 --ports=127.0.0.1:30010:30010 --ports=127.0.0.1:30020:30020 --ports=127.0.0.1:30030:30030
 
 k8s-load-image:
 	minikube image load mongo:latest
+	minikube image load nginx:latest
 	minikube image load note-service-image:latest
 	minikube image load behave-service-image:latest
 	minikube image load query-service-image:latest
