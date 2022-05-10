@@ -16,7 +16,7 @@ export default function App() {
 
     if (content.length < 50) {
       const { data } = await axios.post(
-        `http://${process.env.NOTEBOOK_ROUTE}/${process.env.NOTE_SERVICE_ROUTE}/api/route`,
+        `http://${process.env.NOTEBOOK_ROUTE}/${process.env.NOTE_SERVICE_ROUTE}/api/note`,
         {
           content: input.current.value,
           status: 'pending',
@@ -29,7 +29,7 @@ export default function App() {
 
   const fetchNotes = async () => {
     const { data } = await axios.get(
-      `http://${process.env.NOTEBOOK_ROUTE}/${process.env.QUERY_SERVICE_ROUTE}}/api/queries`,
+      `http://${process.env.NOTEBOOK_ROUTE}/${process.env.QUERY_SERVICE_ROUTE}/api/queries`,
     )
 
     setNotes(data.data)
