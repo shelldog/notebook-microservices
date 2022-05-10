@@ -106,3 +106,7 @@ body {
 .m-l {
   width: 40rem;
 }
+
+.m-t {
+  margin-top: 1rem;
+}

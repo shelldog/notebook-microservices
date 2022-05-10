@@ -1,4 +1,4 @@
-const axios = require('axios');
+const axios = require('axios')
 const Behave = require('../models/behave-service-model')
 
 const updateBehave = (req, res) => {
@@ -28,10 +28,13 @@ const updateBehave = (req, res) => {
       behave
         .save()
         .then(async () => {
-          await axios.post(`http://${process.env.EVENT_BUS_ROUTE}:${process.env.EVENT_BUS_PORT}/api/event`, {
-            type: 'BehaveUpdated',
-            data: behave
-          })
+          await axios.post(
+            `http://${process.env.EVENT_BUS_ROUTE}:${process.env.EVENT_BUS_PORT}/api/event`,
+            {
+              type: 'BehaveUpdated',
+              data: behave,
+            },
+          )
 
           return res.status(200).json({
             message: '[Behave Service]: found & updated the request behave!',
