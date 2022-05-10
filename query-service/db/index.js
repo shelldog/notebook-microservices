@@ -12,7 +12,10 @@ const CONFIG = Object.assign(
   },
 )
 
-const DB_PATH = process.env.ENV !== 'production' ? `mongodb://${process.env.DB_PATH}/query-mongo` : `${process.env.DB_PATH}`;
+const DB_PATH =
+  process.env.ENV !== 'production'
+    ? `mongodb://${process.env.DB_PATH}/query-mongo`
+    : `${process.env.DB_PATH}`
 
 mongoose
   .connect(DB_PATH, CONFIG)

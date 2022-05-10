@@ -4,7 +4,7 @@ const deleteNote = require('../controllers/note-service-delete')
 const getNote = require('../controllers/note-service-get-note')
 const updateNote = require('../controllers/note-service-update')
 const getNotes = require('../controllers/note-service-get-notes')
-const onEvent = require('../controllers/note-service-event');
+const onEvent = require('../controllers/note-service-event')
 
 // init router
 const router = express.Router()

@@ -4,12 +4,12 @@ const Schema = new mongoose.Schema(
   {
     type: {
       type: String,
-      required: true
+      required: true,
     },
     data: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   {
     timestamps: true,

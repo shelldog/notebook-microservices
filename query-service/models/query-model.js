@@ -1,29 +1,29 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 const Schema = new mongoose.Schema(
   {
     noteid: {
       type: String,
-      required: true
+      required: true,
     },
     content: {
       type: String,
-      required: true
+      required: true,
     },
     behave: {
       type: String,
-      required: true
+      required: true,
     },
     status: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   {
-    timestamps: true
-  }
-);
+    timestamps: true,
+  },
+)
 
-const Query = mongoose.model('query', Schema, 'queries');
+const Query = mongoose.model('query', Schema, 'queries')
 
-module.exports = Query;
+module.exports = Query

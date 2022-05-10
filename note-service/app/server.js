@@ -2,11 +2,11 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const express = require('express')
 
-// setup env file 
+// setup env file
 if (process.env.ENV) {
   require('dotenv').config()
 } else {
-  require('dotenv').config({ path: __dirname + '/./../env/dev.env'});
+  require('dotenv').config({ path: __dirname + '/./../env/dev.env' })
 }
 
 const db = require('../db')

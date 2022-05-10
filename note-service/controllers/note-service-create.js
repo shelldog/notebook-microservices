@@ -1,4 +1,4 @@
-const axios = require('axios');
+const axios = require('axios')
 const Note = require('../models/note-service-model')
 const validate = require('../utils/validation')
 
@@ -21,12 +21,17 @@ const createNote = (req, res) => {
     .save()
     .then(async () => {
       // after saving the request, sending this one to the event!
-      await axios.post(`http://${process.env.EVENT_BUS_ROUTE}:${process.env.EVENT_BUS_PORT}/api/event`, {
-        type: 'NoteCreated',
-        data: note
-      }).catch((error) => {
-        console.log('axios error: ', error)
-      });
+      await axios
+        .post(
+          `http://${process.env.EVENT_BUS_ROUTE}:${process.env.EVENT_BUS_PORT}/api/event`,
+          {
+            type: 'NoteCreated',
+            data: note,
+          },
+        )
+        .catch(error => {
+          console.log('error when sending to event-bus: ', error)
+        })
 
       return res.status(201).json({
         data: {

@@ -9,10 +9,13 @@ const CONFIGS = Object.assign(
     authSource: 'admin',
     user: process.env.DB_USERNAME,
     pass: process.env.DB_PASSWORD,
-  }
+  },
 )
 
-const DB_PATH = process.env.ENV !== 'production' ? `mongodb://${process.env.DB_PATH}/behave-mongo` : `${process.env.DB_PATH}`;
+const DB_PATH =
+  process.env.ENV !== 'production'
+    ? `mongodb://${process.env.DB_PATH}/behave-mongo`
+    : `${process.env.DB_PATH}`
 
 mongoose
   .connect(DB_PATH, CONFIGS)

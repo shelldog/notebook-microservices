@@ -1,7 +1,9 @@
+.note-wrap {
+  box-shadow: 4px 4px 4px #efefef;
+}
+
 .note-c {
-  border: 1px solid #000000;
   padding: 1rem 2rem;
-  margin-top: 1rem;
 }
 
 .note-p {
@@ -32,4 +34,15 @@
 .status-finished {
   background-color: #efefef;
   color: #ffffff;
+}
+
+.note-del {
+  cursor: pointer;
+  padding: 1rem;
+  background-color: #ebe5e5;
+  transition: background-color 200ms ease-in-out;
+}
+
+.note-del:hover {
+  background-color: #ff565c;
 }

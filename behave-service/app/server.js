@@ -4,7 +4,7 @@ const express = require('express')
 
 // setup env file
 if (process.env.ENV) {
-  require('dotenv').config();
+  require('dotenv').config()
 } else {
   require('dotenv').config({ path: __dirname + '/./../env/dev.env' })
 }
