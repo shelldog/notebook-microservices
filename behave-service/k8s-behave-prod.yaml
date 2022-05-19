@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
         - name: behave-service
-          image: behave-service-image
-          imagePullPolicy: IfNotPresent
+          image: shelldog/behave:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 30020
           env:

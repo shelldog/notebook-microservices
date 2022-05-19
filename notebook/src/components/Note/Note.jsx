@@ -19,7 +19,7 @@ export default function Note({ children, note, render }) {
 
     if (status.content !== 'finished') {
       const { data } = await axios.post(
-        `http://${process.env.NOTEBOOK_ROUTE}/${process.env.BEHAVE_SERVICE_ROUTE}/api/behave/${note.noteid}/update`,
+        `http://${process.env.BEHAVE_SERVICE_ROUTE}:${process.env.BEHAVE_SERVICE_PORT}/api/behave/${note.noteid}/update`,
         {
           behave: status.next,
         },
@@ -35,12 +35,12 @@ export default function Note({ children, note, render }) {
     e.preventDefault()
 
     await axios.delete(
-      `http://${process.env.NOTEBOOK_ROUTE}/${process.env.NOTE_SERVICE_ROUTE}/api/note/${note.noteid}`,
+      `http://${process.env.NOTE_SERVICE_ROUTE}:${process.env.NOTE_SERVICE_PORT}/api/note/${note.noteid}`,
     )
 
     const { data } = await axios
       .get(
-        `http://${process.env.NOTEBOOK_ROUTE}/${process.env.QUERY_SERVICE_ROUTE}/api/queries`,
+        `http://${process.env.QUERY_SERVICE_ROUTE}:${process.env.QUERY_SERVICE_PORT}/api/queries`,
       )
       .catch(() => {
         return {}

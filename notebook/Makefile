@@ -11,7 +11,7 @@ docker-run-local:
 	docker run -d -p 3000:3000 --name notebook notebook-image:latest
 
 docker-run-prod:
-	docker run -d -p 80:80 --name notebook notebook-image:prod
+	docker run -d -p 80:80 --name notebook shelldog/notebook:latest
 
 # stop the image
 docker-stop-local:

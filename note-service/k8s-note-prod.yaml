@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
         - name: note-service
-          image: note-service-image:latest
-          imagePullPolicy: IfNotPresent
+          image: shelldog/note:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 30010
           env:

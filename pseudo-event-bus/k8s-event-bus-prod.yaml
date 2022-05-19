@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
         - name: event-bus-service 
-          image: event-bus-image:latest
-          imagePullPolicy: IfNotPresent
+          image: shelldog/event-bus:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 30000
           env:

@@ -24,12 +24,8 @@ docker-build-images:
 	cd query-service \
 		&& $(MAKE) build-image
 	cd notebook \
-		&& $(MAKE) build-image
-
-docker-build-prod-image:
-	cd notebook \
+		&& $(MAKE) build-image \
 		&& $(MAKE) build-prod-image
-
 
 # for local
 docker-compose-local-up:
@@ -58,6 +54,21 @@ docker-compose-production-down:
 docker-prune:
 	docker volume prune
 
+# tags to push the images
+docker-tag-images:
+	docker tag notebook-image:prod shelldog/notebook:latest
+	docker tag note-service-image:latest shelldog/note:latest
+	docker tag behave-service-image:latest shelldog/behave:latest
+	docker tag query-service-image:latest shelldog/query:latest
+	docker tag event-bus-image:latest shelldog/event-bus:latest
+
+docker-push-images:
+	docker push shelldog/notebook:latest
+	docker push shelldog/note:latest
+	docker push shelldog/behave:latest
+	docker push shelldog/query:latest
+	docker push shelldog/event-bus:latest
+
 ## KUBERNETES ##
 
 k8s-init:
@@ -78,7 +89,6 @@ k8s-load-images:
 k8s-up:
 	kubectl apply -f k8s-config.yaml
 	kubectl apply -f k8s-secret.yaml
-	kubectl apply -f k8s-ingress.yaml
 
 k8s-down:
 	kubectl delete -f k8s-config.yaml
@@ -113,7 +123,6 @@ k8s-local-down:
 
 k8s-prod-up:
 	cd notebook \
-		&& $(MAKE) build-prod-image \
 		&& $(MAKE) docker-run-prod
 	cd note-service \
 		&& $(MAKE) k8s-note-prod-up

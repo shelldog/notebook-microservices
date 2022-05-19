@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
         - name: query-service
-          image: query-service-image:latest
-          imagePullPolicy: IfNotPresent
+          image: shelldog/query:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 30030
           env:
