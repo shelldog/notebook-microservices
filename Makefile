@@ -73,7 +73,6 @@ docker-push-images:
 
 k8s-init:
 	minikube start
-	minikube addons enable ingress
 
 k8s-init-wsl2:
 	minikube start --ports=127.0.0.1:30000:30000 --ports=127.0.0.1:30010:30010 --ports=127.0.0.1:30020:30020 --ports=127.0.0.1:30030:30030
