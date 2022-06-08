@@ -6,6 +6,18 @@
 version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+    directory: "/behave-service" # Location of package manifests
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/note-service" # Location of package manifests
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/query-service" # Location of package manifests
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/notebook" # Location of package manifests
     schedule:
       interval: "daily"
